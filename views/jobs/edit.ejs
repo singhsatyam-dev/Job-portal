@@ -1,0 +1,13 @@
+<%- include("../partials/header", { title }) %>
+
+<h2>Edit Job</h2>
+
+<form method="POST" action="/jobs/edit/<%= job.id %>">
+  <input class="form-control mb-2" name="title" value="<%= job.title %>" required>
+  <input class="form-control mb-2" name="company" value="<%= job.company %>" required>
+  <input class="form-control mb-2" name="location" value="<%= job.location %>" required>
+  <textarea class="form-control mb-2" name="description" required><%= job.description %></textarea>
+  <button class="btn btn-primary">Update</button>
+</form>
+
+<%- include("../partials/footer") %>

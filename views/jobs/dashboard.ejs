@@ -1,0 +1,29 @@
+<%- include("../partials/header", { title }) %>
+
+<h2>My Posted Jobs</h2>
+
+<a href="/jobs/create" class="btn btn-success mb-3">Create Job</a>
+
+<table class="table table-bordered">
+  <tr>
+    <th>Title</th>
+    <th>Actions</th>
+  </tr>
+
+  <% jobs.forEach(job => { %>
+  <tr>
+    <td><%= job.title %></td>
+    <td>
+      <a href="/jobs/edit/<%= job.id %>" class="btn btn-warning btn-sm">Edit</a>
+      <a
+        href="/jobs/delete/<%= job.id %>"
+        class="btn btn-danger btn-sm"
+        onclick="return confirm('Delete this job?')"
+        >Delete</a
+      >
+    </td>
+  </tr>
+  <% }) %>
+</table>
+
+<%- include("../partials/footer") %>

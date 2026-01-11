@@ -1,0 +1,23 @@
+<%- include("../partials/header", { title }) %>
+
+<h2>Applicants</h2>
+
+<table class="table table-bordered">
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Resume</th>
+  </tr>
+
+  <% applicants.forEach(app => { %>
+    <tr>
+      <td><%= app.name %></td>
+      <td><%= app.email %></td>
+      <td>
+        <a href="/uploads/resumes/<%= app.resume %>" target="_blank">View</a>
+      </td>
+    </tr>
+  <% }) %>
+</table>
+
+<%- include("../partials/footer") %>

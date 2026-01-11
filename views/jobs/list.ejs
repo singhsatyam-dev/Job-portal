@@ -1,0 +1,42 @@
+<%- include("../partials/header", { title }) %>
+
+<h2>Available Jobs</h2>
+
+<div class="row">
+  <% jobs.forEach(job => { %>
+  <div class="col-md-4 mb-3">
+    <div class="card">
+      <div class="card-body">
+        <h5><%= job.title %></h5>
+        <p><%= job.company %> - <%= job.location %></p>
+        <a href="/jobs/<%= job.id %>" class="btn btn-primary btn-sm">View</a>
+      </div>
+      <nav>
+        <ul class="pagination">
+          <% for(let i = 1; i <= totalPages; i++) { %>
+          <li class="page-item <%= i === currentPage ? 'active' : '' %>">
+            <a
+              class="page-link"
+              href="/jobs?page=<%= i %><%= search ? '&search=' + search : '' %>"
+            >
+              <%= i %>
+            </a>
+          </li>
+          <% } %>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <% }) %>
+</div>
+
+<form method="GET" action="/jobs" class="mb-3">
+  <input
+    class="form-control"
+    name="search"
+    placeholder="Search by title or location"
+    value="<%= search || '' %>"
+  />
+</form>
+
+<%- include("../partials/footer") %>

@@ -1,0 +1,19 @@
+<%- include("../partials/header", { title }) %>
+
+<h2><%= job.title %></h2>
+<p><strong>Company:</strong> <%= job.company %></p>
+<p><strong>Location:</strong> <%= job.location %></p>
+<p><%= job.description %></p>
+
+<hr>
+
+<h4>Apply for this job</h4>
+
+<form method="POST" action="/jobs/apply/<%= job.id %>" enctype="multipart/form-data">
+  <input class="form-control mb-2" name="name" placeholder="Your Name" required>
+  <input class="form-control mb-2" name="email" placeholder="Your Email" required>
+  <input type="file" class="form-control mb-2" name="resume" required>
+  <button class="btn btn-primary">Apply</button>
+</form>
+
+<%- include("../partials/footer") %>

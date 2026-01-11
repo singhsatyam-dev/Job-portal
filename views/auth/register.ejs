@@ -1,0 +1,24 @@
+<%- include("../partials/header", { title }) %>
+
+<h2>Recruiter Register</h2>
+
+<form method="POST" action="/register">
+  <div class="mb-3">
+    <label>Name</label>
+    <input class="form-control" name="name" required />
+  </div>
+
+  <div class="mb-3">
+    <label>Email</label>
+    <input type="email" class="form-control" name="email" required />
+  </div>
+
+  <div class="mb-3">
+    <label>Password</label>
+    <input type="password" class="form-control" name="password" required />
+  </div>
+
+  <button class="btn btn-primary">Register</button>
+</form>
+
+<%- include("../partials/footer") %>
